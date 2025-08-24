@@ -4,14 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
     <title>Task Manager</title>
 </head>
 <body>
     <header>
         <img src="./assets/hourglass-svgrepo-com.svg" alt="taskit logo">
-        <span>taskIT</span>
+        <span>TaskIt</span>
     </header>
-    <main></main>
+    <main>
+        <h1>Welcome to TaskIt</h1>
+        <p>Plan and Organize your tasks and duties for increased productivity</p>
+        <section class="task-input">
+            <h3>Add New Task</h3>
+            <form action="" method="POST">
+                <input type="text" name="task" id="task" placeholder="Enter your task here..." required>
+                <div class="priority">
+                    <label for="priority">Priority:</label>
+                    <select name="priority" id="priority" required>
+                        <option value="" disabled selected>Select priority</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <input type="text" name="description" id="description" placeholder="Enter task description..." required>
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+    </main>
     <footer></footer>
     
 </body>
