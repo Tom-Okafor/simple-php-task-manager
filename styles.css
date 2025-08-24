@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 2px solid rgb(247, 80, 19);
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+    width: 30px;
+    height: 30px;
+    animation: spin 5s linear infinite ;
+    -webkit-animation: spin 5s linear infinite ;
+}
+
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+header span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    font-family: serif;
+    text-transform: lowercase;
+    letter-spacing: 1.5px;
+}
