@@ -27,13 +27,14 @@
             <form action="" method="POST">
                 <input type="text" name="task" id="task" placeholder="Enter your task here..." required>
                 <div class="priority">
-                    <label for="priority">Priority:</label>
-                    <select name="priority" id="priority" required>
-                        <option value="" disabled selected>Select priority</option>
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
+                    <h4>Task Priority</h4>
+                    <input type="radio" name="priority" id="priority-lax" value="priority-lax">
+                    <label for="priority-lax">Lax</label>
+                    <input type="radio" name="priority" id="priority-important" value="priority-important">
+                    <label for="priority-important">Important</label>
+                    <input type="radio" name="priority" id="priority-" value="priority-urgent">
+                    <label for="priority-lax">Ugent</label>
+                    
                 </div>
                 <input type="text" name="description" id="description" placeholder="Enter task description..." required>
                 <button type="submit">Add Task</button>
