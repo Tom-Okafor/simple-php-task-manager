@@ -44,6 +44,56 @@
                 <button type="submit">Add Task</button>
             </form>
         </section>
+
+        <section class="task-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Task Name</th>
+                        <th>Task Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Clean The Kitchen</td>
+                        <td>Take out the garbage. Wash the plates and pots. Clean the walls and unclutter the sink</td>
+                        <td>Important</td>
+                        <td>Incomplete</td>
+                        <td>
+                            <a href="#">update</a>
+                            <a href="#">delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Paint the walls</td>
+                        <td>Lorem Ipsum dolor ipsum cum laude if no bettear sind carliever dorias echag shoeli iproxi delium</td>
+                        <td>Important</td>
+                        <td>Incomplete</td>
+                        <td>
+                            <a href="#">update</a>
+                            <a href="#">delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Arrange the Sitting room</td>
+                        <td>Take out the garbage. Wash the plates and pots. Clean the walls and unclutter the sink</td>
+                        <td>Important</td>
+                        <td>Incomplete</td>
+                        <td>
+                            <a href="#">update</a>
+                            <a href="#">delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
     <footer></footer>
 

@@ -10,7 +10,7 @@ header {
     align-items: center;
     gap: 10px;
     padding: 20px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 header img {
@@ -34,7 +34,7 @@ header img {
 header span {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #333;
+    color: #020853;
     letter-spacing: 0px;
 }
 
@@ -84,7 +84,7 @@ main form {
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 form .priority h4 {
@@ -141,4 +141,29 @@ form .priority input[type='radio'] {
         border: 2px solid #666aaa;
         color: #fafafa;
     }
+}
+
+.task-list {
+    margin-top: 60px;
+}
+
+.task-list table {
+    max-width: 1200px;
+    margin-inline: auto;
+    text-align: left;
+    border: 2px solid #666aaa;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+.task-list table td:last-child {
+    width: 150px;
 }
