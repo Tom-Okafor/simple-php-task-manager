@@ -46,7 +46,7 @@
         </section>
 
         <section class="task-list">
-            <table>
+            <table cellspacing="0">
                 <thead>
                     <tr>
                         <th>S/N</th>
@@ -62,8 +62,8 @@
                         <td>1</td>
                         <td>Clean The Kitchen</td>
                         <td>Take out the garbage. Wash the plates and pots. Clean the walls and unclutter the sink</td>
-                        <td>Important</td>
-                        <td>Incomplete</td>
+                        <td><span class="lax">Lax</span></td>
+                        <td><span class="complete">Complete</span></td>
                         <td>
                             <a href="#">update</a>
                             <a href="#">delete</a>
@@ -73,8 +73,8 @@
                         <td>2</td>
                         <td>Paint the walls</td>
                         <td>Lorem Ipsum dolor ipsum cum laude if no bettear sind carliever dorias echag shoeli iproxi delium</td>
-                        <td>Important</td>
-                        <td>Incomplete</td>
+                        <td><span class="urgent">Urgent</span></td>
+                        <td><span class="incomplete">Incomplete</span></td>
                         <td>
                             <a href="#">update</a>
                             <a href="#">delete</a>
@@ -84,8 +84,8 @@
                         <td>3</td>
                         <td>Arrange the Sitting room</td>
                         <td>Take out the garbage. Wash the plates and pots. Clean the walls and unclutter the sink</td>
-                        <td>Important</td>
-                        <td>Incomplete</td>
+                        <td><span class="important">Important</span></td>
+                        <td><span class="inprogress">In progress</span></td>
                         <td>
                             <a href="#">update</a>
                             <a href="#">delete</a>
