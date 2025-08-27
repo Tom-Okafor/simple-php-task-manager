@@ -65,8 +65,8 @@
                         <td><span class="lax">Lax</span></td>
                         <td><span class="complete">Complete</span></td>
                         <td>
-                            <a href="#">update</a>
-                            <a href="#">delete</a>
+                            <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
+                            <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                     </tr>
                     <tr>
@@ -76,8 +76,8 @@
                         <td><span class="urgent">Urgent</span></td>
                         <td><span class="incomplete">Incomplete</span></td>
                         <td>
-                            <a href="#">update</a>
-                            <a href="#">delete</a>
+                            <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update" /></a>
+                            <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                     </tr>
                     <tr>
@@ -87,8 +87,8 @@
                         <td><span class="important">Important</span></td>
                         <td><span class="inprogress">In progress</span></td>
                         <td>
-                            <a href="#">update</a>
-                            <a href="#">delete</a>
+                            <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update" /></a>
+                            <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                     </tr>
                 </tbody>
