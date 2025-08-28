@@ -28,23 +28,29 @@ include 'process.php';
             <form action="" method="POST">
                 <div class="input-block">
                     <label for="task">Task Name</label>
-                    <input type="text" name="task" id="task" placeholder="Enter your task name here..." required>
+                    <input type="text" name="task_name" id="task" placeholder="Enter your task name here..." required>
                 </div>
                 <div class="priority">
                     <h4>Task Priority</h4>
-                    <input type="radio" name="priority" id="priority-lax" value="priority-lax" required>
+                    <input type="radio" name="task_priority" id="priority-lax" value="priority-lax" required>
                     <label for="priority-lax">Lax</label>
-                    <input type="radio" name="priority" id="priority-important" value="priority-important" required>
+                    <input type="radio" name="task_priority" id="priority-important" value="priority-important" required>
                     <label for="priority-important">Important</label>
-                    <input type="radio" name="priority" id="priority-urgent" value="priority-urgent" required>
+                    <input type="radio" name="task_priority" id="priority-urgent" value="priority-urgent" required>
                     <label for="priority-urgent">Urgent</label>
 
                 </div>
                 <div class="input-block">
                     <label for="description">Task Description</label>
-                    <textarea name="description" id="description" placeholder="Enter the task description"></textarea>
+                    <textarea name="task_description" id="description" placeholder="Enter the task description"></textarea>
                 </div>
                 <button type="submit" name="submit_task">Add Task</button>
+                
+            <?php
+            if ($task_data_input_error) {
+                echo "<h2 class='task-list-error'>Please, ensure you enter data into all the fields. No task will be added if the all the form details are not provided</h2>";
+            }
+            ?>
             </form>
         </section>
 
@@ -100,6 +106,7 @@ include 'process.php';
             <?php } else {
                 echo '<h3 class="task-list-error">No tasks to display. Please add a new task!</h3>';
             }?>
+            
         </section>
     </main>
     <footer></footer>
