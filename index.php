@@ -46,6 +46,7 @@
         </section>
 
         <section class="task-list">
+            <?php if (isset($task_data) && !empty($task_data)) {?>
             <table cellspacing="0">
                 <thead>
                     <tr>
@@ -93,6 +94,9 @@
                     </tr>
                 </tbody>
             </table>
+            <?php } else {
+                echo '<h3 class="task-list-error">No tasks to display. Please add a new task!</h3>';
+            }?>
         </section>
     </main>
     <footer></footer>

@@ -40,7 +40,7 @@ header span {
 
 main {
     margin-block: 40px;
-    width: min(85vw, 1200px);
+    width: min(85vw, 1440px);
     margin-inline: auto;
 }
 
@@ -351,4 +351,10 @@ td:not(td:last-child):hover {
         -o-transform: translateX(-50%) translateY(-100%);
 }
 
+}
+
+.task-list-error {
+    text-transform: capitalize;
+    color: #ff3333;
+    font-weight: 700;
 }
