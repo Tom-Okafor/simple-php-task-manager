@@ -1,3 +1,6 @@
+<?php
+include 'process.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,11 +32,11 @@
                 </div>
                 <div class="priority">
                     <h4>Task Priority</h4>
-                    <input type="radio" name="priority" id="priority-lax" value="priority-lax">
+                    <input type="radio" name="priority" id="priority-lax" value="priority-lax" required>
                     <label for="priority-lax">Lax</label>
-                    <input type="radio" name="priority" id="priority-important" value="priority-important">
+                    <input type="radio" name="priority" id="priority-important" value="priority-important" required>
                     <label for="priority-important">Important</label>
-                    <input type="radio" name="priority" id="priority-urgent" value="priority-urgent">
+                    <input type="radio" name="priority" id="priority-urgent" value="priority-urgent" required>
                     <label for="priority-urgent">Urgent</label>
 
                 </div>
@@ -41,7 +44,7 @@
                     <label for="description">Task Description</label>
                     <textarea name="description" id="description" placeholder="Enter the task description"></textarea>
                 </div>
-                <button type="submit">Add Task</button>
+                <button type="submit" name="submit_task">Add Task</button>
             </form>
         </section>
 
