@@ -1,5 +1,5 @@
 <?php
-include 'process.php';
+include 'process.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@ include 'process.php';
         <p>Plan and Organize your tasks and duties for increased productivity</p>
         <section class="task-input">
             <h3>Add New Task</h3>
-            <form action="" method="POST">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                 <div class="input-block">
                     <label for="task">Task Name</label>
                     <input type="text" name="task_name" id="task" placeholder="Enter your task name here..." required>
@@ -55,7 +55,7 @@ include 'process.php';
         </section>
 
         <section class="task-list">
-            <?php if (isset($task_data) && !empty($task_data)) {?>
+            <?php if (isset($_SESSION['task_data']) && !empty($_SESSION['task_data'])) {?>
             <table cellspacing="0">
                 <thead>
                     <tr>
@@ -69,7 +69,7 @@ include 'process.php';
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($task_data as $task_item) {
+                    foreach ($_SESSION['task_data'] as $task_item) {
                         echo '<tr>
                         <td>'.$task_item["task_id"].'</td>
                         <td>'.$task_item["task_name"].'</td>
