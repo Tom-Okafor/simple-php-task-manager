@@ -32,11 +32,11 @@ include 'process.php';
                 </div>
                 <div class="priority">
                     <h4>Task Priority</h4>
-                    <input type="radio" name="task_priority" id="priority-lax" value="priority-lax" required>
+                    <input type="radio" name="task_priority" id="priority-lax" value="lax" required>
                     <label for="priority-lax">Lax</label>
-                    <input type="radio" name="task_priority" id="priority-important" value="priority-important" required>
+                    <input type="radio" name="task_priority" id="priority-important" value="important" required>
                     <label for="priority-important">Important</label>
-                    <input type="radio" name="task_priority" id="priority-urgent" value="priority-urgent" required>
+                    <input type="radio" name="task_priority" id="priority-urgent" value="urgent" required>
                     <label for="priority-urgent">Urgent</label>
 
                 </div>
@@ -47,10 +47,10 @@ include 'process.php';
                 <button type="submit" name="submit_task">Add Task</button>
                 
             <?php
-            if ($task_data_input_error) {
+            if (isset($task_data_input_error) && $task_data_input_error) {
                 echo "<h2 class='task-list-error'>Please, ensure you enter data into all the fields. No task will be added if the all the form details are not provided</h2>";
             }
-            ?>
+?>
             </form>
         </section>
 
@@ -68,39 +68,22 @@ include 'process.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Clean The Kitchen</td>
-                        <td>Take out the garbage. Wash the plates and pots. Clean the walls and unclutter the sink</td>
-                        <td><span class="lax">Lax</span></td>
-                        <td><span class="complete">Complete</span></td>
+                    <?php
+                    foreach ($task_data as $task_item) {
+                        echo '<tr>
+                        <td>'.$task_item["task_id"].'</td>
+                        <td>'.$task_item["task_name"].'</td>
+                        <td>'.$task_item["task_description"].'</td>
+                        <td><span class='.$task_item["task_priority"].'>'.$task_item["task_priority"].'</span></td>
+                        <td><span class='.$task_item["task_status"].'>'.$task_item["task_status"].'</span></td>
                         <td>
                             <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
                             <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Paint the walls</td>
-                        <td>Lorem Ipsum dolor ipsum cum laude if no bettear sind carliever dorias echag shoeli iproxi delium</td>
-                        <td><span class="urgent">Urgent</span></td>
-                        <td><span class="incomplete">Incomplete</span></td>
-                        <td>
-                            <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update" /></a>
-                            <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Arrange the Sitting room</td>
-                        <td>Take out the garbage. Wash the plates and pots. Clean the walls and unclutter the sink</td>
-                        <td><span class="important">Important</span></td>
-                        <td><span class="inprogress">In progress</span></td>
-                        <td>
-                            <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update" /></a>
-                            <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
-                        </td>
-                    </tr>
+                        </tr>';
+                    }
+
+                ?>
                 </tbody>
             </table>
             <?php } else {
