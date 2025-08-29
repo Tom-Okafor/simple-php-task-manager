@@ -55,6 +55,29 @@ include 'process.php'
         </section>
 
         <section class="task-list">
+            <form action="">
+                <label for="filter">Filter Tasks</label>
+                <select name="filter" id="filter">
+                    <option value="">filter by</option>
+                    <option value="filter_priority">Priority</option>
+                    <option value="filter_status">Status</option>
+                </select>
+            </form>
+
+            <form action="">
+                <label for="sort">Sort Tasks</label>
+                <select name="sort" id="sort">
+                    <option value="">sort by</option>
+                    <option value="sort_name">name</option>
+                    <option value="sort_priority">priority</option>
+                    <option value="sort_id">id</option>
+                </select>
+                <label for="sort-order">Sort Order</label>
+                <select name="sort-order" id="sort-order">
+                    <option value="ascending">ascending</option>
+                    <option value="descending">descending</option>
+                </select>
+            </form>
             <?php if (isset($_SESSION['task_data']) && !empty($_SESSION['task_data'])) {?>
             <table cellspacing="0">
                 <thead>
