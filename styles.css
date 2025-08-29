@@ -55,7 +55,7 @@ main p {
     line-height: 130%;
 }
 
-main form {
+main .task-input form {
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -166,6 +166,11 @@ tr {
     border-bottom: 2px solid #666aaa;
 }
 
+th {
+    color: #020853;
+    text-transform: uppercase;
+}
+
 th,
 td {
     padding: 10px;
@@ -198,6 +203,7 @@ td:not(td:last-child):hover {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .incomplete {
@@ -209,6 +215,7 @@ td:not(td:last-child):hover {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .inprogress {
@@ -220,6 +227,7 @@ td:not(td:last-child):hover {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .urgent {
@@ -231,6 +239,7 @@ td:not(td:last-child):hover {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .important {
@@ -242,10 +251,25 @@ td:not(td:last-child):hover {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .lax {
     background-color: #0099ff;
+    padding: 10px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.completed {
+    background-color: #037e40;
+    color: white;
+    text-transform: uppercase;
     padding: 10px;
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -357,4 +381,42 @@ td:not(td:last-child):hover {
     text-transform: capitalize;
     color: #ff3333;
     font-weight: 700;
+}
+
+.task-list-controls {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+    padding: 15px 30px;
+    border: 2px solid #666aaa;
+    background-color: #fafafa;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    width: fit-content;
+}
+
+.task-list-controls #sort-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.task-list-controls #sort-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.task-list-controls label {
+    text-transform: uppercase;
+    color: #020853;
+    font-weight: 600;
+}
+
+.task-list-controls #filter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
