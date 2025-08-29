@@ -55,7 +55,8 @@ include 'process.php'
         </section>
 
         <section class="task-list">
-            <form action="">
+            <div class="task-list-controls">
+                <form action="" method="post" id="filter-form">
                 <label for="filter">Filter Tasks</label>
                 <select name="filter" id="filter">
                     <option value="">filter by</option>
@@ -64,20 +65,26 @@ include 'process.php'
                 </select>
             </form>
 
-            <form action="">
-                <label for="sort">Sort Tasks</label>
+            <form action="" method="post" id="sort-form">
+                <div class="sort-options">
+                    <label for="sort">Sort Tasks</label>
                 <select name="sort" id="sort">
                     <option value="">sort by</option>
                     <option value="sort_name">name</option>
                     <option value="sort_priority">priority</option>
                     <option value="sort_id">id</option>
                 </select>
+                </div>
+
+                <div class="sort-order-options">
                 <label for="sort-order">Sort Order</label>
                 <select name="sort-order" id="sort-order">
                     <option value="ascending">ascending</option>
                     <option value="descending">descending</option>
-                </select>
+                </select></div>
             </form>
+            </div>
+            
             <?php if (isset($_SESSION['task_data']) && !empty($_SESSION['task_data'])) {?>
             <table cellspacing="0">
                 <thead>
@@ -100,7 +107,7 @@ include 'process.php'
                         <td><span class='.$task_item["task_priority"].'>'.$task_item["task_priority"].'</span></td>
                         <td><span class='.$task_item["task_status"].'>'.$task_item["task_status"].'</span></td>';
                         if ($task_item["task_status"] == 'complete') {
-                            echo '<td><span class="complete">Completed</span></td>';
+                            echo '<td><span class="completed">Completed</span></td>';
                         } else {
                             echo '<td>
                             <a href="#" class="update-item" data-task_id='.$task_item['task_id'].'><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
