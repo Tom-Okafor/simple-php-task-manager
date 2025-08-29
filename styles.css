@@ -145,6 +145,8 @@ form .priority input[type='radio'] {
 
 .task-list {
     margin-top: 60px;
+    padding-top: 5rem;
+    border-top: 2px solid #e0e0e0;
 }
 
 .task-list table {
@@ -385,7 +387,7 @@ td:not(td:last-child):hover {
 
 .task-list-controls {
     display: flex;
-    gap: 3rem;
+    gap: 5rem;
     margin-bottom: 1.5rem;
     padding: 15px 30px;
     border: 2px solid #666aaa;
@@ -400,7 +402,7 @@ td:not(td:last-child):hover {
 
 .task-list-controls #sort-form {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .task-list-controls #sort-form > div {
@@ -419,4 +421,16 @@ td:not(td:last-child):hover {
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
+}
+
+.task-list-controls form select {
+    padding: 5px 10px;
+    text-transform: capitalize;
+    border: 2px solid #666aaa;
+    border-radius: 5px;
+    font-size: 1rem;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
