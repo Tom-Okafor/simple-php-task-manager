@@ -77,8 +77,8 @@ include 'process.php'
                         <td><span class='.$task_item["task_priority"].'>'.$task_item["task_priority"].'</span></td>
                         <td><span class='.$task_item["task_status"].'>'.$task_item["task_status"].'</span></td>
                         <td>
-                            <a href="#" class="update-item"><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
-                            <a href="#" class="delete-item"><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
+                            <a href="#" class="update-item" data-task_id='.$task_item['task_id'].'><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
+                            <a href="#" class="delete-item" data-task_id='.$task_item['task_id'].'><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                         </tr>';
                     }
