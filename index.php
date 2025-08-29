@@ -75,12 +75,16 @@ include 'process.php'
                         <td>'.$task_item["task_name"].'</td>
                         <td>'.$task_item["task_description"].'</td>
                         <td><span class='.$task_item["task_priority"].'>'.$task_item["task_priority"].'</span></td>
-                        <td><span class='.$task_item["task_status"].'>'.$task_item["task_status"].'</span></td>
-                        <td>
+                        <td><span class='.$task_item["task_status"].'>'.$task_item["task_status"].'</span></td>';
+                        if ($task_item["task_status"] == 'complete') {
+                            echo '<td><span class="complete">Completed</span></td>';
+                        } else {
+                            echo '<td>
                             <a href="#" class="update-item" data-task_id='.$task_item['task_id'].'><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
                             <a href="#" class="delete-item" data-task_id='.$task_item['task_id'].'><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                         </tr>';
+                        }
                     }
 
                 ?>
