@@ -4,13 +4,15 @@
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+body {
+    background-color: #e3e3e9cc;
+}
 header {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 20px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #fcfcfc;
 }
 
 header img {
@@ -146,7 +148,7 @@ form .priority input[type='radio'] {
 .task-list {
     margin-top: 60px;
     padding-top: 5rem;
-    border-top: 2px solid #e0e0e0;
+    border-top: 2px solid #fcfcfc;
 }
 
 .task-list table {
@@ -389,15 +391,16 @@ td:not(td:last-child):hover {
     display: flex;
     gap: 5rem;
     margin-bottom: 1.5rem;
-    padding: 15px 30px;
-    border: 2px solid #666aaa;
-    background-color: #fafafa;
+    padding: 25px 30px;
+    border: 0.5px solid #f0f0f0;
+    background-color: #f0f0f0;
     border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
     width: fit-content;
+    box-shadow: -4px -4px 8px #00010c25, 4px 4px 8px #fff, inset 4px 4px 15px #00010c55, inset -4px -4px 15px #fff;
 }
 
 .task-list-controls #sort-form {
