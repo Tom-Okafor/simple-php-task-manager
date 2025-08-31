@@ -60,8 +60,12 @@ include 'process.php'
                 <label for="filter">Filter Tasks</label>
                 <select name="filter" id="filter">
                     <option value="">filter by</option>
-                    <option value="filter_priority">Priority</option>
-                    <option value="filter_status">Status</option>
+                    <option value="urgent">Urgent</option>
+                    <option value="important">Important</option>
+                    <option value="lax">Lax</option>
+                    <option value="completed">Completed</option>
+                    <option value="progress">In Progress</option>
+                    <option value="Incomplete">Incomplete</option>
                 </select>
             </form>
 
@@ -72,7 +76,7 @@ include 'process.php'
                     <option value="">sort by</option>
                     <option value="sort_name">name</option>
                     <option value="sort_priority">priority</option>
-                    <option value="sort_id">id</option>
+                    <option value="sort_id">S/N</option>
                 </select>
                 </div>
 
@@ -125,9 +129,17 @@ include 'process.php'
             }?>
             
         </section>
+        
     </main>
+        <section class="alert-container">
+            <div class="task-add-alert">
+            <img src="./assets/tick.svg" alt="" aria-hidden="true">
+            <h3>Task Added Successfully!</h3>
+        </div>
+        </section>
     <footer></footer>
 
+    <script src="./app.js"></script>
 </body>
 
 </html>
