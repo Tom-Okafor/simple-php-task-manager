@@ -36,6 +36,55 @@ function processTaskData()
     }
     $task_data = $_SESSION['task_data'];
     if (isset($_GET['filter'])) {
+        $selected_filter = $_GET['filter'];
+
+        function getSelectedTasks($task_item)
+        {
+            return $task_item['priority'] == 'urgent';
+        }
+        $filtered_tasks = [];
+        switch ($selected_filter) {
+            case 'urgent':
+                $filtered_tasks = array_filter($task_data, function ($task_item) {
+
+                    return $task_item['task_priority'] == 'urgent';
+
+                });
+                break;
+            case 'important':
+                $filtered_tasks = array_filter($task_data, function ($task_item) {
+
+                    return $task_item['task_priority'] == 'important';
+
+                });
+                break;
+            case 'lax':
+                $filtered_tasks = array_filter($task_data, function ($task_item) {
+                    return $task_item['task_priority'] == 'lax';
+
+                });
+                break;
+            case 'incomplete':
+                $filtered_tasks = array_filter($task_data, function ($task_item) {
+                    return $task_item['task_status'] == 'incomplete';
+
+                });
+                break;
+            case 'progress':
+                $filtered_tasks = array_filter($task_data, function ($task_item) {
+                    return $task_item['task_status'] == 'progress';
+
+                });
+                break;
+            case 'complete':
+                $filtered_tasks = array_filter($task_data, function ($task_item) {
+                    return $task_item['task_status'] == 'complete';
+
+                });
+                break;
+        }
+
+        return $filtered_tasks;
     }
     return $task_data;
 }
