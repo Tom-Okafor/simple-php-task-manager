@@ -22,3 +22,29 @@ function handleSubmit(event, form) {
   }, 2000);
 }
 handleTaskAdd();
+
+function handleFilterSelection() {
+  const filterForm = document.getElementById("filter-form");
+  const filterFormSelect = document.querySelector("#filter-form select");
+  if (!filterForm || !filterFormSelect) {
+    return;
+  }
+
+  filterFormSelect.addEventListener("change", () => {
+    filterForm.submit();
+  });
+}
+
+function scrollPageDown() {
+  const taskTable = document.getElementById("task-table");
+  if (!taskTable) return;
+  window.scrollBy({
+    behavior: "smooth",
+    top: document.body.scrollHeight - window.innerHeight,
+    left: 0,
+  });
+}
+
+scrollPageDown();
+
+handleFilterSelection();
