@@ -58,16 +58,16 @@ $task_data = processTaskData();
 
         <section class="task-list">
             <div class="task-list-controls">
-                <form action="" method="post" id="filter-form">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET" id="filter-form">
                 <label for="filter">Filter Tasks</label>
                 <select name="filter" id="filter">
                     <option value="">filter by</option>
                     <option value="urgent">Urgent</option>
                     <option value="important">Important</option>
                     <option value="lax">Lax</option>
-                    <option value="completed">Completed</option>
+                    <option value="complete">Completed</option>
                     <option value="progress">In Progress</option>
-                    <option value="Incomplete">Incomplete</option>
+                    <option value="incomplete">Incomplete</option>
                 </select>
             </form>
 
@@ -91,8 +91,8 @@ $task_data = processTaskData();
             </form>
             </div>
             
-            <?php if (isset($_SESSION['task_data']) && !empty($_SESSION['task_data'])) {?>
-            <table cellspacing="0">
+            <?php if ($task_data && !empty($task_data)) {?>
+            <table cellspacing="0" id="task-table">
                 <thead>
                     <tr>
                         <th>S/N</th>
@@ -126,8 +126,12 @@ $task_data = processTaskData();
                 ?>
                 </tbody>
             </table>
-            <?php } else {
+            <?php } elseif (isset($_SESSION['task_data']) && !empty($_SESSION['task_data'])) {
+                echo '<h3 class="task-list-error">No tasks to display in this category!</h3>';
+            } else {
+
                 echo '<h3 class="task-list-error">No tasks to display. Please add a new task!</h3>';
+
             }?>
             
         </section>
