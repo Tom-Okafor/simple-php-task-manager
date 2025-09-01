@@ -444,7 +444,7 @@ td:not(td:last-child):hover {
 
 .alert-container {
     height: 100dvh;
-    display: grid;
+    display: none;
     place-items: center;
     background-color: #000000aa;
     backdrop-filter: blur(15px);
@@ -452,6 +452,20 @@ td:not(td:last-child):hover {
     top: 0;
     left: 0;
     right: 0;
+}
+
+.alert-container.visible {
+    display: grid;
+    opacity: 0;
+    animation: show-alert 500ms ease-in-out forwards;
+    -webkit-animation: show-alert 500ms ease-in-out forwards;
+}
+
+@keyframes show-alert {
+    to {
+        opacity: 1;
+    }
+    
 }
 
 .task-add-alert {
