@@ -29,4 +29,14 @@ function processTaskSubmission()
     header('Location: index.php');
 }
 
+function processTaskData()
+{
+    if (!$_SESSION['task_data']) {
+        return;
+    }
+    $task_data = $_SESSION['task_data'];
+    if (isset($_GET['filter'])) {
+    }
+    return $task_data;
+}
 processTaskSubmission();
