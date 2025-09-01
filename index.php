@@ -1,5 +1,6 @@
 <?php
-include 'process.php'
+include 'process.php';
+$task_data = processTaskData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +21,7 @@ include 'process.php'
         <img src="./assets/hourglass-svgrepo-com.svg" alt="taskit logo">
         <span>TaskIt</span>
     </header>
+
     <main>
         <h1>Welcome to TaskIt</h1>
         <p>Plan and Organize your tasks and duties for increased productivity</p>
@@ -103,7 +105,7 @@ include 'process.php'
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($_SESSION['task_data'] as $task_item) {
+                    foreach ($task_data as $task_item) {
                         echo '<tr>
                         <td>'.$task_item["task_id"].'</td>
                         <td>'.$task_item["task_name"].'</td>
