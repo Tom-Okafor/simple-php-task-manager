@@ -35,6 +35,19 @@ function handleFilterSelection() {
   });
 }
 
+function handleSortSelection() {
+  const sortForm = document.getElementById("sort-form");
+  const sortFormSelect = document.querySelectorAll("#sort-form select");
+  if (!sortForm || !sortFormSelect) {
+    return;
+  }
+  sortFormSelect.forEach((sortSelect) => {
+    sortSelect.addEventListener("change", () => {
+      sortForm.submit();
+    });
+  });
+}
+
 function scrollPageDown() {
   const taskTable = document.getElementById("task-table");
   if (!taskTable) return;
@@ -46,5 +59,5 @@ function scrollPageDown() {
 }
 
 scrollPageDown();
-
+handleSortSelection();
 handleFilterSelection();
