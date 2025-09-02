@@ -62,13 +62,13 @@ $task_data = processTaskData();
                 <label for="filter">Filter Tasks</label>
                 <select name="filter" id="filter">
                     <option value="">filter by</option>
-                    <option value="all">All</option>
-                    <option value="urgent">Urgent</option>
-                    <option value="important">Important</option>
-                    <option value="lax">Lax</option>
-                    <option value="complete">Completed</option>
-                    <option value="progress">In Progress</option>
-                    <option value="incomplete">Incomplete</option>
+                    <option value="all" <?php chooseSelectedFilter('all') ?>>All</option>
+                    <option value="urgent" <?php chooseSelectedFilter('urgent') ?>>Urgent</option>
+                    <option value="important" <?php chooseSelectedFilter('important') ?>>Important</option>
+                    <option value="lax" <?php chooseSelectedFilter('lax') ?>>Lax</option>
+                    <option value="complete" <?php chooseSelectedFilter('complete') ?>>Completed</option>
+                    <option value="progress" <?php chooseSelectedFilter('progress') ?>>In Progress</option>
+                    <option value="incomplete" <?php chooseSelectedFilter('incomplete') ?>>Incomplete</option>
                 </select>
             </form>
 
