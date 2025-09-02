@@ -1,6 +1,6 @@
 <?php
 include 'process.php';
-$task_data = processTaskData();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,7 +117,7 @@ $task_data = processTaskData();
                             echo '<td><span class="completed">Completed</span></td>';
                         } else {
                             echo '<td>
-                            <a href="#" class="update-item" data-task_id='.$task_item['task_id'].'><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
+                            <a href="'.$_SERVER['PHP_SELF']."?update-id=".$task_item['task_id'].'" class="update-item" data-task_id='.$task_item['task_id'].'><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
                             <a href="#" class="delete-item" data-task_id='.$task_item['task_id'].'><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                         </tr>';
@@ -144,6 +144,41 @@ $task_data = processTaskData();
             <h3>Task Added Successfully!</h3>
         </div>
         </section>
+    </main>
+    <?php if ($update_details) :?>
+        <section class="update-container <?php if (checkForUpdateId()) {
+            echo 'visible';
+        } ?>">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="update-task-form">
+                <div class="input-block">
+                    <label for="task">Task Name</label>
+                    <input type="text" name="task_name" id="task" value="<?php echo $update_details['task_name'] ?>" placeholder="Enter your new task name here..." required>
+                </div>
+                <div class="priority">
+                    <h4>Task Priority</h4>
+                    <input type="radio" name="task_priority" id="priority-lax" value="lax" <?php checkForUpdateTaskPriority($update_details, 'lax');?> required>
+                    <label for="priority-lax">Lax</label>
+                    <input type="radio" name="task_priority" id="priority-important" value="important" <?php checkForUpdateTaskPriority($update_details, 'important');?> required>
+                    <label for="priority-important">Important</label>
+                    <input type="radio" name="task_priority" id="priority-urgent" value="urgent" <?php checkForUpdateTaskPriority($update_details, 'urgent');?> required>
+                    <label for="priority-urgent">Urgent</label>
+                </div>
+                <div class="input-block">
+                    <label for="update_status">Task Status</label>
+                    <select name="update_status" id="update_status">
+                        <option value="incomplete" <?php checkForUpdateTaskStatus($update_details, 'incomplete')?>>Incomplete</option>
+                        <option value="progress" <?php checkForUpdateTaskStatus($update_details, 'progress')?>>In Progress</option>
+                        <option value="complete" <?php checkForUpdateTaskStatus($update_details, 'complete')?>>Complete</option>
+                    </select>
+                </div>
+                <div class="input-block">
+                    <label for="description">Task Description</label>
+                    <textarea name="task_description" id="description"  placeholder="Enter the new task description"><?php echo $update_details['task_description']; ?></textarea>
+                </div>
+                <button type="submit" name="submit_task">Update Task</button>
+            </form>
+        </section>
+        <?php endif; ?>
     <footer></footer>
 
     <script src="./app.js"></script>
