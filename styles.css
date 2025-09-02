@@ -442,7 +442,7 @@ td:not(td:last-child):hover {
     -o-border-radius: 5px;
 }
 
-.alert-container {
+.alert-container, .update-container {
     height: 100dvh;
     display: none;
     place-items: center;
@@ -454,7 +454,7 @@ td:not(td:last-child):hover {
     right: 0;
 }
 
-.alert-container.visible {
+.alert-container.visible, .update-container.visible {
     display: grid;
     opacity: 0;
     animation: show-alert 500ms ease-in-out forwards;
