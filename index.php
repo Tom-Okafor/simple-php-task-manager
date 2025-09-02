@@ -62,6 +62,7 @@ $task_data = processTaskData();
                 <label for="filter">Filter Tasks</label>
                 <select name="filter" id="filter">
                     <option value="">filter by</option>
+                    <option value="all">All</option>
                     <option value="urgent">Urgent</option>
                     <option value="important">Important</option>
                     <option value="lax">Lax</option>
