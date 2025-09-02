@@ -3,8 +3,8 @@
 function processTaskSubmission()
 {
     session_start();
-    
-    if (!($_SERVER['REQUEST_METHOD'] == 'POST')) {
+
+    if (!isset($_POST['task_name']) || !isset($_POST['task_priority']) || !isset($_POST['task_description'])) {
         return;
     }
 
@@ -143,7 +143,7 @@ function sortTasksDescending(array $data, string $category)
     if ($category === 'task_name') {
         usort($data, function ($a, $b) {
 
-return strcmp(strtoupper($b['task_name']), strtoupper($a['task_name']));
+            return strcmp(strtoupper($b['task_name']), strtoupper($a['task_name']));
         });
 
     }
@@ -178,4 +178,46 @@ function getTableDataQueryOptions(string $option_value, string $option_category)
     echo 'selected';
 
 }
+
+function checkForUpdateId()
+{
+    return  isset($_GET['update-id']) ? true : false;
+}
+
+function getUpdateIdTaskDetails()
+{
+    if (!isset($_GET['update-id'])) {
+        return;
+    }
+
+    $update_id = $_GET['update-id'];
+    $task_data = $_SESSION['task_data'];
+    $update_details = array_filter($task_data, function ($each_task) use ($update_id) {
+        return $each_task['task_id'] == $update_id;
+    });
+    if (!$update_details) {
+        return;
+    }
+    return $update_details[array_keys($update_details)[0]];
+}
+
+function checkForUpdateTaskPriority(array $update_data, string $priority)
+{
+    if ($update_data['task_priority'] === $priority) {
+        echo 'checked';
+    }
+}
+
+function checkForUpdateTaskStatus(array $update_data, string $status)
+{
+
+    if ($update_data['task_status'] === $status) {
+        echo 'selected';
+    }
+
+}
+
 processTaskSubmission();
+
+$task_data = processTaskData();
+$update_details = getUpdateIdTaskDetails();
