@@ -36,6 +36,9 @@ function processTaskData()
     }
     $task_data = $_SESSION['task_data'];
     if (isset($_GET['filter'])) {
+        if ($_GET['filter'] === '') {
+            header('Location: index.php');
+        }
         $selected_filter = $_GET['filter'];
 
         $filtered_tasks = match ($selected_filter) {
@@ -57,11 +60,17 @@ function processTaskData()
             'progress' => array_filter($task_data, function ($task_item) {
                 return $task_item['task_status'] === 'progress';
             }),
-            'all' => $task_data,
-            default => [],
+            default => $task_data,
         };
         return $filtered_tasks;
     }
     return $task_data;
+}
+
+function chooseSelectedFilter(string $filter_value)
+{
+    if (isset($_GET['filter']) && $_GET['filter'] === $filter_value) {
+        echo "selected";
+    }
 }
 processTaskSubmission();
