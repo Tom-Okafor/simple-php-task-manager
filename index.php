@@ -62,32 +62,32 @@ $task_data = processTaskData();
                 <label for="filter">Filter Tasks</label>
                 <select name="filter" id="filter">
                     <option value="">filter by</option>
-                    <option value="all" <?php chooseSelectedFilter('all') ?>>All</option>
-                    <option value="urgent" <?php chooseSelectedFilter('urgent') ?>>Urgent</option>
-                    <option value="important" <?php chooseSelectedFilter('important') ?>>Important</option>
-                    <option value="lax" <?php chooseSelectedFilter('lax') ?>>Lax</option>
-                    <option value="complete" <?php chooseSelectedFilter('complete') ?>>Completed</option>
-                    <option value="progress" <?php chooseSelectedFilter('progress') ?>>In Progress</option>
-                    <option value="incomplete" <?php chooseSelectedFilter('incomplete') ?>>Incomplete</option>
+                    <option value="all" <?php getTableDataQueryOptions('all', 'filter') ?>>All</option>
+                    <option value="urgent" <?php getTableDataQueryOptions('urgent', 'filter') ?>>Urgent</option>
+                    <option value="important" <?php getTableDataQueryOptions('important', 'filter') ?>>Important</option>
+                    <option value="lax" <?php getTableDataQueryOptions('lax', 'filter') ?>>Lax</option>
+                    <option value="complete" <?php getTableDataQueryOptions('complete', 'filter') ?>>Completed</option>
+                    <option value="progress" <?php getTableDataQueryOptions('progress', 'filter') ?>>In Progress</option>
+                    <option value="incomplete" <?php getTableDataQueryOptions('incomplete', 'filter') ?>>Incomplete</option>
                 </select>
             </form>
 
-            <form action="" method="post" id="sort-form">
+            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" id="sort-form">
                 <div class="sort-options">
                     <label for="sort">Sort Tasks</label>
                 <select name="sort" id="sort">
                     <option value="">sort by</option>
-                    <option value="sort_name">name</option>
-                    <option value="sort_priority">priority</option>
-                    <option value="sort_id">S/N</option>
+                    <option value="sort_name" <?php getTableDataQueryOptions('sort_name', 'sort') ?>>name</option>
+                    <option value="sort_priority" <?php getTableDataQueryOptions('sort_priority', 'sort') ?>>priority</option>
+                    <option value="sort_id" <?php getTableDataQueryOptions('sort_id', 'sort') ?>>S/N</option>
                 </select>
                 </div>
 
                 <div class="sort-order-options">
                 <label for="sort-order">Sort Order</label>
                 <select name="sort-order" id="sort-order">
-                    <option value="ascending">ascending</option>
-                    <option value="descending">descending</option>
+                    <option value="ascending" <?php getTableDataQueryOptions('ascending', 'sort-order') ?>>ascending</option>
+                    <option value="descending" <?php getTableDataQueryOptions('descending', 'sort-order') ?>>descending</option>
                 </select></div>
             </form>
             </div>
