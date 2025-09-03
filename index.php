@@ -149,7 +149,7 @@ include 'process.php';
         <section class="update-container <?php if (checkForUpdateId()) {
             echo 'visible';
         } ?>">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" id="update-task-form">
+            <form action="<?php echo $_SERVER['PHP_SELF']."?updated_id=".$update_details['task_id']; ?>" method="POST" id="update-task-form">
                 <div class="input-block">
                     <label for="task">Task Name</label>
                     <input type="text" name="update_task_name" id="task" value="<?php echo $update_details['task_name'] ?>" placeholder="Enter your new task name here..." required>
