@@ -217,7 +217,39 @@ function checkForUpdateTaskStatus(array $update_data, string $status)
 
 }
 
+function updateTask()
+{
+    if (!isset($_POST['update_task'])) {
+        return;
+    }
+
+    $updated_id = $_GET['updated_id'];
+    $updated_task_name = $_POST['update_task_name'];
+    $updated_task_priority = $_POST['update_task_priority'];
+    $updated_task_status = $_POST['update_task_status'];
+    $updated_task_description = $_POST['update_task_description'];
+    if (empty($updated_task_name) || empty($updated_task_priority) || empty($updated_task_description) || empty($updated_task_status)) {
+        return;
+    }
+
+    $updated_details = array_filter($_SESSION['task_data'], function ($each_task) use ($updated_id) {
+        return $each_task['task_id'] == $updated_id;
+    });
+    if (!$updated_details) {
+        return;
+    }
+
+    $_SESSION['task_data'][array_keys($updated_details)[0]]['task_name'] = $updated_task_name;
+    $_SESSION['task_data'][array_keys($updated_details)[0]]['task_priority'] = $updated_task_priority;
+    $_SESSION['task_data'][array_keys($updated_details)[0]]['task_status'] = $updated_task_status;
+    $_SESSION['task_data'][array_keys($updated_details)[0]]['task_description'] = $updated_task_description;
+    header('Location: index.php');
+    return true;
+}
+
 processTaskSubmission();
+
+updateTask();
 
 $task_data = processTaskData();
 $update_details = getUpdateIdTaskDetails();
