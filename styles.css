@@ -442,7 +442,8 @@ td:not(td:last-child):hover {
     -o-border-radius: 5px;
 }
 
-.alert-container, .update-container {
+.alert-container,
+.update-container {
     height: 100dvh;
     display: none;
     place-items: center;
@@ -454,7 +455,8 @@ td:not(td:last-child):hover {
     right: 0;
 }
 
-.alert-container.visible, .update-container.visible {
+.alert-container.visible,
+.update-container.visible {
     display: grid;
     opacity: 0;
     animation: show-alert 500ms ease-in-out forwards;
@@ -465,7 +467,7 @@ td:not(td:last-child):hover {
     to {
         opacity: 1;
     }
-    
+
 }
 
 .task-add-alert {
@@ -489,5 +491,76 @@ td:not(td:last-child):hover {
 .task-add-alert img {
     height: 35px;
     object-fit: contain;
+}
 
+#update-task-form {
+    width: min(85vw, 500px);
+    background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 35px;
+    gap: 1.3rem;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+#update-task-form .input-block {
+    gap: 7px;
+}
+
+#update-task-form input:not([type='radio']),
+#update-task-form textarea,
+#update-task-form select {
+    background-color: transparent;
+    padding: 10px 15px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    box-shadow: -2px -2px 10px #00000055, inset -4px -4px 15px #00000033, 2px 2px 10px #ffffffcc;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    &:focus {
+        border: none;
+        outline: 2px solid #666aaa;
+    }
+}
+
+#update-task-form button {
+    height: fit-content;
+    width: fit-content;
+    padding: 15px 20px;
+    border: 2px solid #666aaa;
+    background-color: transparent;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    transition: all 300ms ease;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    color: #444;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 2px 2px 10px #00000055, -2px -4px 8px #ffffffdd,
+        inset -2px -2px 15px #00000050;
+
+    &:hover {
+        transform: translateY(-4px);
+        -webkit-transform: translateY(-4px);
+        -moz-transform: translateY(-4px);
+        -ms-transform: translateY(-4px);
+        -o-transform: translateY(-4px);
+        box-shadow: 2px 3px 10px #00000099, -2px -4px 5px #ffffff;
+    }
 }
