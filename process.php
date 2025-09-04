@@ -37,7 +37,7 @@ function processTaskSubmission()
 
 function processTaskData()
 {
-    if (!$_SESSION['task_data']) {
+    if (!isset($_SESSION['task_data'])) {
         return;
     }
     $task_data = $_SESSION['task_data'];
