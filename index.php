@@ -118,7 +118,7 @@ include 'process.php';
                         } else {
                             echo '<td>
                             <a href="'.$_SERVER['PHP_SELF']."?update-id=".$task_item['task_id'].'" class="update-item" data-task_id='.$task_item['task_id'].'><img src="./assets/edit-4-svgrepo-com.svg" alt="update"/></a>
-                            <a href="#" class="delete-item" data-task_id='.$task_item['task_id'].'><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
+                            <a href="'.$_SERVER['PHP_SELF'].'?delete_id='.$task_item['task_id'].'" class="delete-item" data-task_id='.$task_item['task_id'].'><img src="./assets/delete-2-svgrepo-com.svg" alt="delete" /></a>
                         </td>
                         </tr>';
                         }
@@ -145,6 +145,19 @@ include 'process.php';
         </div>
         </section>
     </main>
+    <section class="delete-container visible">
+            <div class="task-delete-alert">
+            <div class="warning">
+                <img src="./assets/cancel.svg" alt="" aria-hidden="true">
+                <h3>Warning</h3>
+            </div>
+            <p>You are about to delete task with id: <span id="delete-id"></span>. If you are sure you intend to delete this task, please click Delete otherwise, click Cancel</p>
+            <div class="delete-buttons">
+                <button id="cancel-delete-task">cancel</button>
+                <button id="delete-task">delete</button>
+            </div>
+        </div>
+        </section>
     <?php if ($update_details) :?>
         <section class="update-container <?php if (checkForUpdateId()) {
             echo 'visible';
