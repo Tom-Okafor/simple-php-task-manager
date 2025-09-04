@@ -50,10 +50,14 @@ function handleSortSelection() {
 
 function scrollPageDown() {
   const taskTable = document.getElementById("task-table");
+  const taskInput = document.querySelector(".task-input");
+  const header = document.querySelector('header');
+  const headerHeight = header.getBoundingClientRect().height;
+  const taskInputHeight = taskInput.getBoundingClientRect().height;
   if (!taskTable) return;
   window.scrollBy({
     behavior: "smooth",
-    top: document.body.scrollHeight - window.innerHeight,
+    top: headerHeight + taskInputHeight + 250,
     left: 0,
   });
 }
