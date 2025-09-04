@@ -3,7 +3,7 @@
 function processTaskSubmission()
 {
     session_start();
-
+    $task_id = 0;
     if (!isset($_POST['task_name']) || !isset($_POST['task_priority']) || !isset($_POST['task_description'])) {
         return;
     }
@@ -19,8 +19,14 @@ function processTaskSubmission()
         $task_data_input_error = true;
         return;
     }
+    if (count($_SESSION['task_data']) < 1) {
+        $task_id = 1;
+    } else {
+        $task_id = end($_SESSION['task_data'])['task_id'] + 1;
+    }
+
     array_push($_SESSION['task_data'], [
-        "task_id" => count($_SESSION['task_data']) + 1,
+        "task_id" => $task_id,
         "task_name" => $task_name,
         "task_description" => $task_description,
         "task_priority" => $task_priority,
@@ -247,9 +253,22 @@ function updateTask()
     return true;
 }
 
+function deleteTask()
+{
+    if (!isset($_GET['delete_id'])) {
+        return;
+    }
+    $delete_id = $_GET['delete_id'];
+    $_SESSION['task_data'] = array_filter($_SESSION['task_data'], function ($each_task) use ($delete_id) {
+        return $each_task['task_id'] != $delete_id;
+    });
+    header('Location: index.php');
+}
+
 processTaskSubmission();
 
 updateTask();
+deleteTask();
 
 $task_data = processTaskData();
 $update_details = getUpdateIdTaskDetails();
