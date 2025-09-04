@@ -175,7 +175,10 @@ include 'process.php';
                     <label for="description">Task Description</label>
                     <textarea name="update_task_description" id="description"  placeholder="Enter the new task description"><?php echo $update_details['task_description']; ?></textarea>
                 </div>
-                <button type="submit" name="update_task">Update Task</button>
+                <div class="update-buttons">
+                    <button type="submit" name="update_task">Update Task</button>
+                    <a href="index.php" class="cancel-update">cancel</a>
+                </div>
             </form>
         </section>
         <?php endif; ?>
