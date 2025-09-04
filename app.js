@@ -48,10 +48,33 @@ function handleSortSelection() {
   });
 }
 
+function handleDeleteTaskBtnClick() {
+  const deleteContainer = document.querySelector(".delete-container");
+  const deleteIdSpan = document.getElementById("delete-id");
+  const deleteTaskBtn = document.querySelectorAll(".delete-item");
+  const cancelDeleteBtn = document.getElementById("cancel-delete-task");
+  const confirmDeleteBtn = document.getElementById("delete-task");
+  cancelDeleteBtn.onclick = () => {
+    deleteContainer.classList.remove("visible");
+  };
+  deleteTaskBtn.forEach((eachDeletBtn) => {
+    eachDeletBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const deleteTaskId = event.target.getAttribute("data-task_id");
+      const targetHref = event.target.getAttribute("href");
+      deleteIdSpan.innerText = deleteTaskId;
+      deleteContainer.classList.add("visible");
+      confirmDeleteBtn.onclick = () => {
+        window.open(targetHref, "_self");
+      };
+    });
+  });
+}
+
 function scrollPageDown() {
   const taskTable = document.getElementById("task-table");
   const taskInput = document.querySelector(".task-input");
-  const header = document.querySelector('header');
+  const header = document.querySelector("header");
   const headerHeight = header.getBoundingClientRect().height;
   const taskInputHeight = taskInput.getBoundingClientRect().height;
   if (!taskTable) return;
@@ -65,3 +88,4 @@ function scrollPageDown() {
 scrollPageDown();
 handleSortSelection();
 handleFilterSelection();
+handleDeleteTaskBtnClick();
