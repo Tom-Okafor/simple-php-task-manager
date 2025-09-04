@@ -44,11 +44,12 @@ include 'process.php';
                 </div>
                 <div class="input-block">
                     <label for="description">Task Description</label>
-                    <textarea name="task_description" id="description" placeholder="Enter the task description"></textarea>
+                    <textarea name="task_description" id="description"
+                        placeholder="Enter the task description"></textarea>
                 </div>
                 <button type="submit" name="submit_task">Add Task</button>
-                
-            <?php
+
+                <?php
             if (isset($task_data_input_error) && $task_data_input_error) {
                 echo "<h2 class='task-list-error'>Please, ensure you enter data into all the fields. No task will be added if the all the form details are not provided</h2>";
             }
@@ -59,44 +60,53 @@ include 'process.php';
         <section class="task-list">
             <div class="task-list-controls">
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET" id="filter-form">
-                <label for="filter">Filter Tasks</label>
-                <select name="filter" id="filter">
-                    <option value="">filter by</option>
-                    <option value="all" <?php getTableDataQueryOptions('all', 'filter') ?>>All</option>
-                    <option value="urgent" <?php getTableDataQueryOptions('urgent', 'filter') ?>>Urgent</option>
-                    <option value="important" <?php getTableDataQueryOptions('important', 'filter') ?>>Important</option>
-                    <option value="lax" <?php getTableDataQueryOptions('lax', 'filter') ?>>Lax</option>
-                    <option value="complete" <?php getTableDataQueryOptions('complete', 'filter') ?>>Completed</option>
-                    <option value="progress" <?php getTableDataQueryOptions('progress', 'filter') ?>>In Progress</option>
-                    <option value="incomplete" <?php getTableDataQueryOptions('incomplete', 'filter') ?>>Incomplete</option>
-                </select>
-            </form>
+                    <label for="filter">Filter Tasks</label>
+                    <select name="filter" id="filter">
+                        <option value="">filter by</option>
+                        <option value="all" <?php getTableDataQueryOptions('all', 'filter') ?>>All</option>
+                        <option value="urgent" <?php getTableDataQueryOptions('urgent', 'filter') ?>>Urgent</option>
+                        <option value="important" <?php getTableDataQueryOptions('important', 'filter') ?>>Important
+                        </option>
+                        <option value="lax" <?php getTableDataQueryOptions('lax', 'filter') ?>>Lax</option>
+                        <option value="complete" <?php getTableDataQueryOptions('complete', 'filter') ?>>Completed
+                        </option>
+                        <option value="progress" <?php getTableDataQueryOptions('progress', 'filter') ?>>In Progress
+                        </option>
+                        <option value="incomplete" <?php getTableDataQueryOptions('incomplete', 'filter') ?>>Incomplete
+                        </option>
+                    </select>
+                </form>
 
-            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" id="sort-form">
-                <div class="sort-options">
-                    <label for="sort">Sort Tasks</label>
-                <select name="sort" id="sort">
-                    <option value="">sort by</option>
-                    <option value="sort_name" <?php getTableDataQueryOptions('sort_name', 'sort') ?>>name</option>
-                    <option value="sort_priority" <?php getTableDataQueryOptions('sort_priority', 'sort') ?>>priority</option>
-                    <option value="sort_id" <?php getTableDataQueryOptions('sort_id', 'sort') ?>>S/N</option>
-                </select>
-                </div>
+                <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET" id="sort-form">
+                    <div class="sort-options">
+                        <label for="sort">Sort Tasks</label>
+                        <select name="sort" id="sort">
+                            <option value="">sort by</option>
+                            <option value="sort_name" <?php getTableDataQueryOptions('sort_name', 'sort') ?>>name
+                            </option>
+                            <option value="sort_priority" <?php getTableDataQueryOptions('sort_priority', 'sort') ?>
+                                >priority</option>
+                            <option value="sort_id" <?php getTableDataQueryOptions('sort_id', 'sort') ?>>ID</option>
+                        </select>
+                    </div>
 
-                <div class="sort-order-options">
-                <label for="sort-order">Sort Order</label>
-                <select name="sort-order" id="sort-order">
-                    <option value="ascending" <?php getTableDataQueryOptions('ascending', 'sort-order') ?>>ascending</option>
-                    <option value="descending" <?php getTableDataQueryOptions('descending', 'sort-order') ?>>descending</option>
-                </select></div>
-            </form>
+                    <div class="sort-order-options">
+                        <label for="sort-order">Sort Order</label>
+                        <select name="sort-order" id="sort-order">
+                            <option value="ascending" <?php getTableDataQueryOptions('ascending', 'sort-order') ?>
+                                >ascending</option>
+                            <option value="descending" <?php getTableDataQueryOptions('descending', 'sort-order') ?>
+                                >descending</option>
+                        </select>
+                    </div>
+                </form>
             </div>
-            
+
             <?php if ($task_data && !empty($task_data)) {?>
             <table cellspacing="0" id="task-table">
                 <thead>
                     <tr>
-                        <th>S/N</th>
+                        <th>ID</th>
                         <th>Task Name</th>
                         <th>Task Description</th>
                         <th>Priority</th>
@@ -134,67 +144,77 @@ include 'process.php';
                 echo '<h3 class="task-list-error">No tasks to display. Please add a new task!</h3>';
 
             }?>
-            
+
         </section>
-        
+
     </main>
-        <section class="alert-container">
-            <div class="task-add-alert">
+    <section class="alert-container">
+        <div class="task-add-alert">
             <img src="./assets/tick.svg" alt="" aria-hidden="true">
             <h3>Task Added Successfully!</h3>
         </div>
-        </section>
+    </section>
     </main>
-    <section class="delete-container visible">
-            <div class="task-delete-alert">
+    <section class="delete-container">
+        <div class="task-delete-alert">
             <div class="warning">
                 <img src="./assets/cancel.svg" alt="" aria-hidden="true">
                 <h3>Warning</h3>
             </div>
-            <p>You are about to delete task with id: <span id="delete-id"></span>. If you are sure you intend to delete this task, please click Delete otherwise, click Cancel</p>
+            <p>You are about to delete task with id: <span id="delete-id"></span>. If you are sure you intend to delete
+                this task, please click Delete otherwise, click Cancel</p>
             <div class="delete-buttons">
                 <button id="cancel-delete-task">cancel</button>
                 <button id="delete-task">delete</button>
             </div>
         </div>
-        </section>
+    </section>
     <?php if ($update_details) :?>
-        <section class="update-container <?php if (checkForUpdateId()) {
-            echo 'visible';
-        } ?>">
-            <form action="<?php echo $_SERVER['PHP_SELF']."?updated_id=".$update_details['task_id']; ?>" method="POST" id="update-task-form">
-                <div class="input-block">
-                    <label for="task">Task Name</label>
-                    <input type="text" name="update_task_name" id="task" value="<?php echo $update_details['task_name'] ?>" placeholder="Enter your new task name here..." required>
-                </div>
-                <div class="priority">
-                    <h4>Task Priority</h4>
-                    <input type="radio" name="update_task_priority" id="priority-lax" value="lax" <?php checkForUpdateTaskPriority($update_details, 'lax');?> required>
-                    <label for="priority-lax">Lax</label>
-                    <input type="radio" name="update_task_priority" id="priority-important" value="important" <?php checkForUpdateTaskPriority($update_details, 'important');?> required>
-                    <label for="priority-important">Important</label>
-                    <input type="radio" name="update_task_priority" id="priority-urgent" value="urgent" <?php checkForUpdateTaskPriority($update_details, 'urgent');?> required>
-                    <label for="priority-urgent">Urgent</label>
-                </div>
-                <div class="input-block">
-                    <label for="update_status">Task Status</label>
-                    <select name="update_task_status" id="update_status">
-                        <option value="incomplete" <?php checkForUpdateTaskStatus($update_details, 'incomplete')?>>Incomplete</option>
-                        <option value="progress" <?php checkForUpdateTaskStatus($update_details, 'progress')?>>In Progress</option>
-                        <option value="complete" <?php checkForUpdateTaskStatus($update_details, 'complete')?>>Complete</option>
-                    </select>
-                </div>
-                <div class="input-block">
-                    <label for="description">Task Description</label>
-                    <textarea name="update_task_description" id="description"  placeholder="Enter the new task description"><?php echo $update_details['task_description']; ?></textarea>
-                </div>
-                <div class="update-buttons">
-                    <button type="submit" name="update_task">Update Task</button>
-                    <a href="index.php" class="cancel-update">cancel</a>
-                </div>
-            </form>
-        </section>
-        <?php endif; ?>
+    <section class="update-container <?php if (checkForUpdateId()) {
+        echo 'visible';
+    } ?>">
+        <form action="<?php echo $_SERVER['PHP_SELF']." ?updated_id=".$update_details['task_id']; ?>" method="POST"
+            id="update-task-form">
+            <div class="input-block">
+                <label for="task">Task Name</label>
+                <input type="text" name="update_task_name" id="task" value="<?php echo $update_details['task_name'] ?>"
+                    placeholder="Enter your new task name here..." required>
+            </div>
+            <div class="priority">
+                <h4>Task Priority</h4>
+                <input type="radio" name="update_task_priority" id="priority-lax" value="lax" <?php
+                checkForUpdateTaskPriority($update_details, 'lax');?> required>
+                <label for="priority-lax">Lax</label>
+                <input type="radio" name="update_task_priority" id="priority-important" value="important" <?php
+                checkForUpdateTaskPriority($update_details, 'important');?> required>
+                <label for="priority-important">Important</label>
+                <input type="radio" name="update_task_priority" id="priority-urgent" value="urgent" <?php
+                checkForUpdateTaskPriority($update_details, 'urgent');?> required>
+                <label for="priority-urgent">Urgent</label>
+            </div>
+            <div class="input-block">
+                <label for="update_status">Task Status</label>
+                <select name="update_task_status" id="update_status">
+                    <option value="incomplete" <?php checkForUpdateTaskStatus($update_details, 'incomplete')?>
+                        >Incomplete</option>
+                    <option value="progress" <?php checkForUpdateTaskStatus($update_details, 'progress')?>>In Progress
+                    </option>
+                    <option value="complete" <?php checkForUpdateTaskStatus($update_details, 'complete')?>>Complete
+                    </option>
+                </select>
+            </div>
+            <div class="input-block">
+                <label for="description">Task Description</label>
+                <textarea name="update_task_description" id="description"
+                    placeholder="Enter the new task description"><?php echo $update_details['task_description']; ?></textarea>
+            </div>
+            <div class="update-buttons">
+                <button type="submit" name="update_task">Update Task</button>
+                <a href="index.php" class="cancel-update">cancel</a>
+            </div>
+        </form>
+    </section>
+    <?php endif; ?>
     <footer></footer>
 
     <script src="./app.js"></script>
