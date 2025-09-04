@@ -298,8 +298,8 @@ td:not(td:last-child):hover {
     position: relative;
 }
 
-.update-item img:hover,
-.delete-item img:hover {
+.update-item:hover img,
+.delete-item:hover img {
     transform: scale(1.1) translateY(-5px);
     -webkit-transform: scale(1.1) translateY(-5px);
     -moz-transform: scale(1.1) translateY(-5px);
@@ -315,6 +315,7 @@ td:not(td:last-child):hover {
     -ms-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     width: 25px;
+    pointer-events: none;
 }
 
 .update-item:hover::after {
